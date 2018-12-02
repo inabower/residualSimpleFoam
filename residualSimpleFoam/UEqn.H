@@ -11,6 +11,9 @@
         fvOptions(U)
     );
     fvVectorMatrix& UEqn = tUEqn.ref();
+    
+    // output residual of U
+    rU.primitiveFieldRef() = UEqn.residual();
 
     UEqn.relax();
 

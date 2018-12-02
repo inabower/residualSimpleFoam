@@ -20,6 +20,9 @@
     // Update the pressure BCs to ensure flux consistency
     constrainPressure(p, U, phiHbyA, rAtU(), MRF);
 
+	// output just initial residual
+    bool isInitialResidual = true;
+    
     // Non-orthogonal pressure corrector loop
     while (simple.correctNonOrthogonal())
     {
@@ -27,6 +30,13 @@
         (
             fvm::laplacian(rAtU(), p) == fvc::div(phiHbyA)
         );
+
+		// output residual of p
+        if(isInitialResidual)
+        {
+            rp.primitiveFieldRef() = pEqn.residual();
+            isInitialResidual = false;
+        }
 
         pEqn.setReference(pRefCell, pRefValue);
 
