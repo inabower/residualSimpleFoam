@@ -44,3 +44,33 @@ autoPtr<incompressible::turbulenceModel> turbulence
 
 #include "createMRF.H"
 #include "createFvOptions.H"
+
+// Add residual field
+Info<< "Creating residual field of p and U\n" << endl;
+volScalarField rp
+(
+    IOobject
+    (
+        "residual_p",
+        runTime.timeName(),
+        mesh,
+        IOobject::NO_READ,
+        IOobject::AUTO_WRITE
+    ),
+    mesh,
+    dimensionedScalar("resp", dimless, 0.)
+);
+
+volVectorField rU
+(
+    IOobject
+    (
+        "residual_U",
+        runTime.timeName(),
+        mesh,
+        IOobject::NO_READ,
+        IOobject::AUTO_WRITE
+    ),
+    mesh,
+    dimensionedVector("resU", dimless, Zero)
+);
