@@ -1,10 +1,11 @@
 # residualSimpleFoam
-simpleFoam with output of residual fields
-This is a solver copied from simpleFoam.
+simpleFoam with output of residual fields..  
+Verified with OpenFOAM v1806.  
+This is a solver copied from simpleFoam.  
 
 #### residual fields
-residual_p : initial residual of pEqn
-residual_U : initial residual of UEqn
+- residual_p : initial residual of pEqn
+- residual_U : initial residual of UEqn
 
 They are outputs of fvMatrix::residual()
 
