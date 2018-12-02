@@ -9,7 +9,7 @@ This is a solver copied from simpleFoam.
 
 They are outputs of fvMatrix::residual()
 
-![residualSimpleFoam_sample](https://github.com/inabower/residualSimpleFoam/test/residual.gif)
+![residualSimpleFoam_sample](https://github.com/inabower/residualSimpleFoam/blob/master/test/residual.gif)
 
 #### How to make
 
